@@ -41,6 +41,11 @@ bool TicTacToe::IsGameOver() const {
 		return true;
 	}
 
+	if (m_turnCount > 9) {
+		std::cout << "Tie Game!\n";
+		return true;
+	}
+
 	return false;
 }
 
@@ -54,6 +59,7 @@ void TicTacToe::TakeTurn() {
 			if (m_board[pos] == ' ') {
 				m_board[pos] = (m_player ? 'X' : '0');
 				m_player = !m_player;
+				m_turnCount++;
 			}
 			else { pos = -1; }
 		}
@@ -63,6 +69,7 @@ void TicTacToe::TakeTurn() {
 }
 
 void TicTacToe::Display() const {
+	system("cls");
 	std::cout << "Current Board State:\n";
 	for (int i = 0; i < 9; i++) {
 		if (i % 3 == 0) { std::cout << "\n-------------\n| "; }

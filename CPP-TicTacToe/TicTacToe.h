@@ -12,6 +12,7 @@ private:
 	6 7 8
 	*/
 	char m_board[9] = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+	int m_turnCount = 0;
 	bool m_player = true;
 
 public:
